@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>当当网</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	<script type="text/javascript">
+		window.onload = function() {
+
+			//			alert(navigator.appName);
+
+		}
+	</script>
+	<style type="text/css">
+		#categoryUl li:hover {
+			background: red;
+			color: white;
+		}
+		#navL ul li{
+			/*clear:  all;
+			display: block;*/
+			
+		}
+	</style>
+
+	<body>
+		<div class="nav">
+			<div id="navContainer" class="nav">
+				<div id="navL" class="nav">
+					<span>送至: 北京 </span><img src="img/下.png" / style="width: 8px;position: relative;top: 0px;left: 2px;">
+					<ul class="citys">
+						<li>石家庄</li>
+						<li>石家庄</li>
+						<li>石家庄</li>
+						<li>石家庄</li>
+						<li>石家庄</li>
+						<li>石家庄</li>
+					</ul>
+					
+				</div>
+				<div id="navR" class="nav">
+					<span id="navWelcom">
+						欢迎光临当当，请
+						<a style="color: red;cursor: pointer;">登录</a>
+						<a id="navRegister" style="cursor:wait;">成为会员</a>
+					</span>
+					<ul class="navUl">
+						<li>
+							<img src="img/dangdangnavshop.png" width="17px" style="position: relative;top: 5px;" />购物车 0
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							我的订单
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							我的云书房
+						</li>
+						<li class="navUlSep">|</li>
+						<li onmouseover="myDangdangMove()" onmouseout="myDangdangOut(0)" id="myDangdang">
+							<div id="">
+								<span>我的当当 </span><img src="img/下.png" / style="width: 8px;position: relative;top: 0px;left: 2px;">
+							</div>
+							<ul id="mydangdangUl" style="position: absolute;margin: 0px;padding: 0px;width: 79px;text-align: left;display: none;" onmouseout="myDangdangulout()">
+								<li>大宗采购</li>
+							</ul>
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							小说投稿
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							我要出书
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							<span>企业采购</span><img src="img/下.png" / style="width: 8px;position: relative;top: 0px;left: 2px;">
+
+						</li>
+						<li class="navUlSep">|</li>
+						<li>
+							<span>客服服务 </span><img src="img/下.png" / style="width: 8px;position: relative;top: 0px;left: 2px;">
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<hr />
+
+		<div class="container">
+			<div id="dangdangloco">
+				<img src="img/dangdangloco.png" width="180px" style="margin-top: 20px;position:;" />
+			</div>
+			<div id="searchDiv">
+				<input type="text" id="searchText" />
+				<input type="image" name="searchClick" id="searchClick" value="" src="img/magnifyingglass.png" style="height: 30px;" />
+				<div id="searchSelected">
+					全部分类
+				</div>
+			</div>
+			<div id="myshopaddmysubscription">
+				<ul id="myshopaddmysubscriptionul">
+					<li id="mysubscriptionli">我的订阅</li>
+					<li id="myshopli"><img src="img/dangdanggshop.png" width="25px" style="position: relative;top: 5px;" /><span style="color: white;">购物车 0</span></li>
+				</ul>
+
+			</div>
+		</div>
+		<div id="categoryDiv">
+			<div id="categoryAllBtn">
+				全部分类
+			</div>
+			<ul id="categoryUl">
+				<li>尾品会</li>
+				<li>图书</li>
+				<li>电子书</li>
+				<li>网络文学</li>
+				<li>服装</li>
+				<li>运动户外</li>
+				<li>孕婴装</li>
+				<li>家庭</li>
+				<li>创意文学</li>
+				<li>食品</li>
+				<li>Apple</li>
+				<li>电器城</li>
+			</ul>
+			<div id="categoryBottom">
+			</div>
+		</div>
+		<div id="allDiv">
+			<div id="categoryleftDiv">
+				<ul id="categoryleftUl">
+					<li>图书、童书</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+					<li>电子书、网络文学</li>
+				</ul>
+			</div>
+			<div id="centerDiv">
+				<div id="centerImageDiv">
+					<img src="img/1.png" />
+
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+	<!--<script type="text/javascript">
+		var lis=document.getElementsByClassName("navUl")[0].children;
+//		var lis=navul.children;
+		
+    
+		for (var i=0;i<lis.length;i++){
+//			alert(1);
+			var li=lis[i];
+		
+			li.onclick=myDangdangMove(i);
+			li.onmouseout=myDangdangOut(i);
+//			li.onmouseout=function(i){
+//								lis[i].style.color="gainsboro";
+//			}-->
+	<!--}
+	</script>-->
+
+</html>

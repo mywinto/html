@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Untitled Document</title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js">
+		</script>
+		<style type="text/css">
+			div a {
+				margin: 0px;
+				padding: 0px
+			}
+			
+			img {
+				border: 0px
+			}
+			
+			.imgsBox {
+				width: 204px;
+				height: 113px;
+				overflow: hidden; //超过分隐藏
+				position: relative;
+			}
+			
+			.imgs a {
+				display: block; //转换成块对象
+				width: 204px;
+				height: 113px;
+			}
+			
+			#clickButton {
+				background: #999999;
+				width: 204px;
+				height: 11px;
+				postion: relative;
+				top: -1px;
+				_top: -5px;
+			}
+			
+			#clickButton div {
+				float: right;
+			}
+			
+			#clickButton a {
+				background-color: #666666;
+				background-color: rgba(0, 152, 50, 0.7);
+				border-left: 1px solid #cccccc;
+				line-height: 11px;
+				height: 11px;
+				font-size: 10px;
+				float: left;
+				padding: 0 10px;
+				color: #ffffff;
+				text-decoration: none;
+			}
+			
+			#clickButton a.active,
+			#clickButton a:hover {
+				background-color: #ff0000;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		var images = new Array("1.png", "2.png", "1.png", "2.png", "3.png")
+		var times = 1;
+		$(function() {
+
+			var interval = window.setInterval(function() {
+				times++;
+				changeImg();
+			}, 2500)
+
+			$("#clickButton a").each(function(index) {
+
+				$(this).hover(function() {
+					$("#clickButton a").removeClass("active");
+					$(this).addClass("active");
+					clearInterval(interval);
+					$("#imgs img").attr("src", images[index]);
+					times = index + 1;
+				}, function() {
+
+					interval = window.setInterval(function() {
+						times++;
+						changeImg();
+					}, 1500)
+				})
+
+			})
+
+			
+			
+		})
+		function swichClick(obj){
+			
+			if(obj.id=="leftBtn"){
+				
+				times--;
+			}else{
+								times++;
+
+			}
+			if(times<0){
+				times=4;
+				
+			}
+							changeImg();
+
+		}
+		function changeImg() {
+
+				$("#clickButton a").removeClass("active");
+
+				$("#clickButton a:nth-child(" + times + ")").addClass("active");
+				$("#imgs img").attr("src", images[times - 1]);
+				if(times == 5) {
+					times = 0;
+				}
+			}
+	
+	</script>
+
+	<body>
+
+		<div class="imgsBox">
+
+			<div id="imgs">
+				<a href="#">
+					<img src="1.png" width="204px" height="117" />
+				</a>
+
+			</div>
+			<div id="leftBtn" style="top: 50px;background-color: red;width: 40px;height: 40px;position: absolute; color: white;font-size: 20px;line-height: 40px;" onclick="swichClick(this)">
+				←
+			</div>
+			<div id="rightBtn" style="top: 50px;left: 172px;background-color: red;width: 40px;height: 40px;position: absolute; color: white;font-size: 20px;line-height: 40px;text-align: right;" onclick="swichClick(this)">
+				→
+			</div>
+			<div id="clickButton" style="position: absolute;top: 113px;background-color: transparent; " >
+				<div>
+					<a class="active" href="">1</a>
+					<a class="" href="">2</a>
+					<a class="" href="">3</a>
+					<a class="" href="">4</a>
+					<a class="" href="">5</a>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
