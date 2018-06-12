@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="css/pulish.css" />
+		<script src="js/publish.js"></script>
+
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload = function() {
+			var mess = document.getElementById("mess-scroll");
+			var messcopy = document.getElementById("mess-scrollcopy")
+			messcopy.innerHTML = mess.innerHTML;
+			var mess1 = document.getElementsByClassName("message-scroll-list")[0];
+
+			function marque() {
+				if(mess1.scrollTop - mess.offsetHeight > 0) {
+					mess1.scrollTop -= mess.offsetHeight;
+				} else {
+					mess1.scrollTop++;
+				}
+			}
+			var intervual = setInterval(function() {
+				marque();
+			}, 50);
+
+			mess1.onmouseover = function() {
+				clearInterval(intervual)
+			};
+			mess1.onmouseout = function() {
+				intervual = setInterval(function() {
+					marque();
+				}, 50)
+			}
+
+		}
+	</script>
+
+	<body style="background-color: gainsboro;">
+		<div class="bodyall" style="width: 1220px;height: 100%;overflow: hidden; margin: auto;background-color: white;">
+		<div class="header">
+			<h3 class="header-left">
+				电梯运行监视系统
+			</h3>
+			<div class="header-center">
+				<!--<img src="img/general2.png"/ >-->
+				<ul>
+					<li class="first-header">首页</li>
+					<li>电梯管理</li>
+					<li>电梯维保</li>
+					<li>统计分析</li>
+					<li>广告发布</li>
+					<li>系统公告</li>
+					<li class="last-header">系统管理</li>
+				</ul>
+			</div>
+			<div class="heder-right">
+				<ul>
+					<li style="background: url(img/user.png) no-repeat 6px center;padding-left: 24px;float: left;">账号管理</li>
+					<li style="background: url(img/help.png) no-repeat 6px center;padding-left: 24px;float: left;">系统管理</li>
+					<li style="background: url(img/quit.png) no-repeat 6px center;padding-left: 24px;float: left;">注销</li>
+					<li style="background: url(img/close.png) no-repeat 6px center;padding-left: 24px;float: left;">退出</li>
+
+				</ul>
+			</div>
+			<div class="header-bottom">
+				<div style="height: 4px;line-height: 4px;background-color: rgba(77,126,178,1);width: 1200px;">
+				</div>
+
+				<span>欢迎您,admin</span><img src="img/table_gray_tr_even_bg.gif" style="height: 15px;margin-left: 5px;margin-right: 5px;margin-top: 5px;" />
+				<a href="#" style="color: black;text-decoration: none;background: url(img/msg_a_icon.gif) 2px 3px no-repeat;padding-left: 25px;">
+					<span style="color: blue;">2</span>条公告</a>
+				<img src="img/table_gray_tr_even_bg.gif" style="height: 15px;margin-left: 5px;margin-right: 5px;margin-top: 5px;" />
+
+				<div class="message-scroll-list">
+					<ul id="mess-scroll">
+						<li>电梯运行监视预警系统公告详情</li>
+						<li>电梯运行监视预警系统公告详情，电梯运行监视预警系统公告详情</li>
+					</ul>
+					<ul id=mess-scrollcopy>
+
+					</ul>
+				</div>
+
+			</div>
+		</div>
+		<div class="bottomdiv">
+			<div class="left-all">
+				<div style="background-color: white;margin-top: 3px;margin-right: 2px;height: 30px;line-height: 30px;">
+					<img src="img/left_nav_dt_iconl1.gif" style="display: inline-block;vertical-align: middle;" /><span style="margin-left: 5px;">电梯管理</span>
+				</div>
+				<ul>
+					<li>管理电梯列表</li>
+					<li>报废电梯列表</li>
+					<li>停用电梯列表</li>
+					<li>电梯楼层维护</li>
+					<li>电梯年检提示</li>
+					<li>电梯检验预警</li>
+					<li>电梯故障报警</li>
+					<li>故障历史记录</li>
+				</ul>
+			</div>
+			<div class="bottom-right-all">
+				<div class="bottom-right-top">
+					<ul>
+						<li class="searchLi" style="background: url(img/search_btn_bg.gif) 0 3px no-repeat;">查询</li>
+						<li class="addLi" style="background: url(img/add_btn_bg.gif) 0 3px no-repeat;">新增</li>
+						<li class="deleteLi" style="background: url(img/delete_btn_bg.gif) 0 3px no-repeat;">批量删除</li>
+					</ul>
+
+				</div>
+				<div class="bottom-right-table">
+					<table border="0" cellspacing="5px" cellpadding="5px">
+						<tr class="tabel-header" style="text-align: left;">
+							<th><input class="cell-select" type="checkbox" onclick="cellallClick(this)" /></th>
+							<th>注册登记证号</th>
+							<th>电梯类型</th>
+							<th>区划</th>
+							<th>物业单位</th>
+							<th>维保单位</th>
+							<th>使用状态</th>
+						</tr>
+						<tr class="tabel-header">
+							<th><input class="cell-select" type="checkbox" /></th>
+							<th>20103701122010370112</th>
+							<th>载客电梯、乘客电梯</th>
+							<th>山东省济南市市北区</th>
+							<th> 通力电梯有限公司</th>
+							<th> 山东射频识别研究中心</th>
+							<th>正常运行</th>
+						</tr>
+						<tr class="tabel-header">
+							<th><input class="cell-select" type="checkbox" /></th>
+							<th>20103701122010370112</th>
+							<th>载客电梯、乘客电梯</th>
+							<th>山东省济南市市北区</th>
+							<th> 通力电梯有限公司</th>
+							<th> 山东射频识别研究中心</th>
+							<th>正常运行</th>
+						</tr>
+
+					</table>
+				</div>
+				<div class="statisticsdiv">
+					<div class="statistics">
+						共有<span>265</span>条,当前是第1页.
+					</div>
+					<div class="statisticsul">
+						<button class="homecell">首页</button>
+						<button class="lastcell">上一页</button>
+						<ul>
+							<li>1</li>
+
+						</ul>
+						<button class="nextclass">下一页</button>
+						<button class="finalclass">尾页</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="alertSearch">
+			<div class="alertSearch1">
+				<div class="title">
+					<span>
+						查询框
+					</span>
+					<img onclick="alertClose()" src="img/aui_gif.gif" />
+				</div>
+				<ul>
+					<li><span>注册代码:</span><input type="text" /></li>
+					<li><span>产权单位:</span><input type="text" /></li>
+					<li><span>所在地址:</span><input type="text" /></li>
+				</ul>
+				<div class="buttons">
+					<button class="searchBtn">搜索</button>
+					<button class="cancelBtn">取消</button>
+				</div>
+			</div>
+		</div>
+		<div class="alertSearch alertAdd">
+			<div class="alertAdd1">
+				<div class="title">
+					<span>
+						电梯信息维护系统
+					</span>
+					<img onclick="alertClose()" src="img/aui_gif.gif" />
+				</div>
+
+				<table border="0" cellspacing="5px" cellpadding="10px">
+					<tr>
+						<th class="thtitle"><span style="color: red;">*</span>电梯名称</th>
+						<th><input class="text" type="text" /></th>
+						<th><span style="color: red;">*</span>注册登记证号</th>
+						<th><input class="text" type="text" /></th>
+					</tr>
+					<tr>
+						<th class="thtitle"><span style="color: red;">*</span>品牌</th>
+						<th class="thselect">
+							<select class="th-select">
+								<option>请选择</option>
+								<option>迪奥电梯</option>
+							</select>
+						</th>
+						<th><span style="color: red;">*</span>电梯类型</th>
+						<th>
+							<select class="th-select">
+								<option>请选择</option>
+								<option>客梯</option>
+							</select>
+						</th>
+					</tr>
+					<tr>
+						<th class="thtitle"><span style="color: red;">*</span>运行状态</th>
+						<th class="thselect">
+							<select class="th-select">
+								<option>请选择</option>
+								<option>迪奥电梯</option>
+							</select>
+						</th>
+						<th><span style="color: red;">*</span>电梯类型</th>
+						<th>
+							<select class="th-select">
+								<option>请选择</option>
+								<option>客梯</option>
+							</select>
+						</th>
+					</tr>
+					<tr class="cityaddcountry" >
+						<th class="thtitle"><span style="color: red;">*</span>区县</th>
+						<th class="thselect" colspan="3">
+							<select class="th-select1">
+								<option>请选择</option>
+								<option>迪奥电梯</option>
+							</select>
+							<select class="th-select1">
+								<option>请选择</option>
+								<option>迪奥电梯</option>
+							</select>
+						</th>
+						
+
+				</table>
+			</div>
+
+		</div>
+</div>
+	</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function(){
+			
+			
+			can();
+		}
+       function can(){
+       	 var myCanvas = document.getElementById("myCanvas");
+        var context = myCanvas.getContext("2d");
+myCanvas.height=myCanvas.height;
+//随机字符（透明度）（大小随机，位置随机）；
+        var strStore = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        //随机函数
+        function roundNum(min, max) {
+            return parseInt(Math.random() * (max - min) + min);
+        }
+        //文字内容部分：
+        var str = "";
+        for(var i = 0; i < 5; i++) {
+            context.beginPath();
+            //随机颜色（浅色：RGB - 200~250）
+            var color = 'rgb(${roundNum(0,255)},${roundNum(0,255)},${roundNum(0,255)})';
+            context.fillStyle = color;
+            context.font = roundNum(20,30)+"px Arial";
+            context.textAlign = "center";
+            str = strStore[roundNum(0,strStore.length)];
+            context.fillText(str, 10 + 18 * i, roundNum(20,35));
+        }
+ 
+        //10个左右的随机（长度随机，位置随机），干扰线
+        for(var j = 0; j < roundNum(5, 10); j++) {
+            context.beginPath();
+            var color = 'rgb(${roundNum(0,255)},${roundNum(0,255)},${roundNum(0,255)})';
+            context.strokeStyle = color;
+            context.moveTo(roundNum(0, 100), roundNum(0, 40));
+            context.lineTo(roundNum(0, 100), roundNum(0, 40));
+            context.stroke();
+        }
+ 
+        //干扰项：10个左右的随机（半径随机，位置随机），干扰圆
+        for(var j = 0; j < roundNum(5, 10); j++) {
+            context.beginPath();
+            context.fillStyle = color;
+            context.arc(roundNum(0, 100), roundNum(0, 40), roundNum(0, 5), Math.PI * 2 / (roundNum(1, 360)), Math.PI * 2 / (roundNum(1, 360)));
+            context.fill();
+        }
+       }
+         
+    </script>
+	
+	<style type="text/css">
+		#back-img{
+			position: relative;
+			width: 664px;
+			height: 602px;
+			margin: auto;
+		}
+		#formdiv{
+			position: absolute;
+			left: 155px;
+			top: 330px;
+			overflow: hidden;
+		}
+		form {
+			width: 450px;
+		}
+		
+		label {
+			/*display: block;*/
+			width: 60px;
+			height: 60px;
+			color: rgba(49, 118, 233, 1.0);
+		}
+		
+		.textdivClass {
+			margin-top: 10px;
+			height: 40px;
+		}
+		
+		.textc {
+			display: inline-block;
+			height: 20px;
+		}
+		.leftDiv {
+			float: left;
+			width: 310px;
+		}
+		
+		.rightDiv {
+			float: left;
+			margin-left: 20px;
+			
+		}
+		.sureBtnClass{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			width: 102px; 
+			height: 34px;
+			background-color: green;
+			-webkit-appearance: button;
+			border: none;
+			font-size: 14px;
+			color: white;
+			
+		}
+		.resetBtnClass{
+			width: 102px; 
+			height: 34px;
+			background-color: green;
+			-webkit-appearance: button;
+			border: none;
+			font-size: 14px;
+			color: white;
+			
+		}
+		.name{
+			width: 220px;
+			height: 30px;
+		}
+		.codeclass{
+			width: 220px;
+			height: 30px;
+		
+		}
+		.yzmcode {
+			width: 130px;
+			height: 30px;
+		}
+		
+		.imgYz {
+			display: inline-block;
+		}
+		
+		  canvas {
+		  	padding: 0px;
+		  	margin: 0px;
+             border: 1px solid red;
+             margin-bottom: -10px;
+            }
+	</style>
+
+	<body  style="background-color: rgba(78,126,178,1.0);" >
+		<div id="back-img">
+			<img src="img/login_bg.gif"/>
+			<div id="formdiv">
+		
+		<form class="Loginform" method="get" action="euqiment.html">
+			<div class="leftDiv">
+				<div class="textdivClass">
+					<label>用户名:</label><input class="textc name" type="text" name="userName" placeholder="请填写用户名" /><br/>
+				</div>
+				<div class="textdivClass">
+					<label>密&nbsp;&nbsp;&nbsp;码:</label><input class="textc codeclass" type="text" name="userName" placeholder="请填写密码" /><br/>
+				</div>
+				<div class="textdivClass">
+					<label>验证码:</label><input class="textc yzmcode" type="text" name="userName" placeholder="请填写验证码" />
+					 <canvas id="myCanvas" width="85px" height="30px" onclick="can()">
+            您的浏览器不支持canvas
+        </canvas><br/>
+				</div>
+			</div>
+			<div class="rightDiv">
+				<input class="remberCodeclass" type="checkbox" name="remeberCode" id="" value="" />记住我<br/>
+				<input class="sureBtnClass"  type="submit" name="sureBtn" value="确定" /><br/>
+				<input class="resetBtnClass" type="reset" value="重置" />
+			</div>
+
+		</form>
+			
+		</div>
+		</div>
+		
+		
+	</body>
+
+</html>

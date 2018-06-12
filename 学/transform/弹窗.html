@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+
+	</head>
+	<script type="text/javascript">
+		function pop1click() {
+			$(".popwindow").toggleClass("pop1style");
+
+		}
+		onload = function() {
+			$(".popwindow").click(function() {
+				$(this).removeClass("pop1style");
+
+			});
+		}
+	</script>
+	<style type="text/css">
+		#pop {
+			padding-top: 100px;
+			text-align: center;
+			overflow: hidden;
+		}
+		
+		#pop div {
+			margin: auto;
+			/*float: left;*/
+			display: inline-block;
+			text-align: center;
+			width: 100px;
+			height: 40px;
+			border: 1px solid red;
+			margin-left: 10px;
+			margin-top: 10px;
+			line-height: 40px;
+		}
+		
+		.popwindow {
+			visibility: hidden;
+			position: fixed;
+			left: 0px;
+			right: 0px;
+			top: 0px;
+			bottom: 0px;
+			overflow: hidden;
+			background-color: rgba(100, 100, 100, 0.5);
+			-webkit-transition: background-color 0.5s ease-out;
+			-moz-transition: all 0.5s ease-out;
+			;
+			transition: all 0.5s ease-out;
+			opacity: 0px;
+		}
+		
+		.pop1style {
+			opacity: 1;
+			visibility: visible;
+			-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+			-moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+			transition: opacity 0.3s 0s, visibility 0s 0s;
+		}
+		
+		.popwindowcontent {
+			visibility: hidden;
+			width: 60%;
+			padding-top: 70%;
+			background-color: white;
+			border-radius: 20px 20px 20px 20px;
+			margin: auto;
+			margin-top: 50%;
+			transform: translateY(-25%);
+				-webkit-transform: scale(1.2);
+			transform: scale(1.2);
+			-webkit-transition: opacity 0.5s ease-out;
+			-moz-transition: opacity 0.5s ease-out;
+			transition: opacity 0.5s ease-out;
+			;
+			-webkit-transition: transform 0.3s ease-out;
+			-moz-transition: transform 0.3s ease-out;
+			transition: transform 0.3s ease-out;
+			;
+		
+			
+			
+		}
+		
+		.pop1style .popwindowcontent {
+			visibility: visible;
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+			-ms-transform: scale(1);
+			-o-transform: scale(1);
+			transform: scale(1);
+		}
+	</style>
+
+	<body>
+		<div id="pop">
+			<div id="pop1" onclick="pop1click()">
+				样式一
+			</div>
+			<div id="pop2">
+				样式二
+			</div>
+			<div id="pop3">
+				样式三
+			</div>
+			<div id="pop4">
+				样式四
+			</div>
+		</div>
+		<div class="popwindow">
+			<div class="popwindowcontent">
+			</div>
+		</div>
+
+	</body>
+
+</html>
